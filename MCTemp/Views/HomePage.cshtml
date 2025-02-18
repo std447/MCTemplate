@@ -1,0 +1,39 @@
+﻿@inherits UmbracoViewPage<ContentModels.HomePage>
+
+@{
+  Layout = "Master.cshtml";
+}
+
+<div class="container mx-auto h-screen bg-white text-gray-800 shadow-lg">
+  <div class="bg-grey-100 min-h-screen">
+    <div class=" mx-auto">
+      <div class="relative">
+        <div class="relative lg:flex overflow-hidden">
+          <div class="h-56 lg:h-auto lg:w-5/12 relative flex items-center justify-center">
+            <img class="absolute h-full w-full object-cover"
+                 src="https://stripe.com/img/v3/payments/overview/photos/slack.jpg" alt="" />
+            <div class="absolute inset-0 bg-green-700 opacity-75"></div>
+            <h1 class="relative text-white text-5xl">Testing</h1>
+          </div>
+          <div class="relative lg:w-7/12 bg-gray-200">
+            <svg class="absolute h-full text-gray-200 w-24 -ml-12" fill="currentColor" viewBox="0 0 100 100"
+                 preserveAspectRatio="none">
+              <polygon points="50,0 100,0 50,100 0,100" />
+            </svg>
+            <div class="relative py-12 lg:py-24 px-8 lg:px-16 text-gray-700 leading-relaxed">
+              <p>
+                This is just a test to provide some text on this element. Minim excepteur exercitation eiusmod proident id voluptate. Nisi enim dolore irure nisi ex enim labore mollit dolore incididunt nostrud elit ut. Irure culpa qui aliqua velit pariatur labore. Nulla voluptate sunt do pariatur sunt nisi laborum in esse ad.
+              </p>
+              <p class="mt-6">
+                <a href="#" class="font-medium text-green-600 hover:text-green-900">
+                  Learn more about our
+                  users &rarr;
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
