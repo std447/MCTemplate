@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
+// import { generatedotNetCertificate } from "./Src/js/certs.js";
 
 export default defineConfig(async ({ mode }) => {
   console.log(`Configuring Vite for ${mode} mode`);
@@ -27,12 +28,18 @@ export default defineConfig(async ({ mode }) => {
   };
 
   if (mode == "development") {
+    // get certificate and key
+    // const { certificate, privateKey } = generatedotNetCertificate();
 
     config.server = {
       strictPort: true,
       hmr: {
         clientPort: 5173
       },
+      //https: {
+      //  cert: certificate,
+      //  key: privateKey,
+      //},
     };
   }
   return config;
