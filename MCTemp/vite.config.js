@@ -1,35 +1,39 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from 'node:url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
-const wwwRootDir = resolve(__dirname, "wwwroot");
-
-
-
-export default defineConfig({
-    appType: 'custom',
-    root: `${resolve(wwwRootDir,"src")}`,
-    publicDir:false,
-    build: {
-        manifest: true,
-        emptyOutDir: true,
-        outDir: '../dist',
-        assetsDir:"",
-        rollupOptions: {
-            input: {
-                main:`${resolve(wwwRootDir,"src","main.js")}`,
-            },
-            output: {
-                entryFileNames: '[name].js',
-                chunkFileNames: '[name].js',
-                assetFileNames: '[name].[ext]'
-            }
-        }
+export default defineConfig(async ({ mode }) => {
+  console.log(`Configuring Vite for ${mode} mode`);
+  const config = {
+    apptype: "custom",
+    root: "Src",
+    publicDir: false,
+    css: {
+      devSourceMap: true
     },
-    plugins: [
-        tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
+    build: {
+      outDir: "../wwwroot/dist",
+      emptyOutDir: true,
+      manifest: true,
+      assetsDir: "",
+      rollupOptions: {
+        input: "Assets/main.js",
+        output: {
+          entryFileNames: "js/[name]-[hash:6].js",
+          chunkFileNames: "js/[name]-chunk.js",
+        }
+      },
+    },
+  };
+
+  if (mode == "development") {
+
+    config.server = {
+      strictPort: true,
+      hmr: {
+        clientPort: 5173
+      },
+    };
+  }
+  return config;
 });

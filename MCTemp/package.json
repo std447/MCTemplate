@@ -1,7 +1,8 @@
 {
   "name": "mctemp",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Demo Project for using Umbraco with Vite",
+  "private": true,
   "type": "module",
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.6",
@@ -13,7 +14,6 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "author": "Chinmay Chandak",
-  "license": "ISC",
-  "description": ""
+  "license": "UNLICENSED"
+
 }

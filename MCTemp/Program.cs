@@ -1,6 +1,6 @@
 using Vite.AspNetCore;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddViteServices();
 builder.CreateUmbracoBuilder()
     .AddBackOffice()
     .AddWebsite()
@@ -24,5 +24,9 @@ app.UseUmbraco()
       u.UseBackOfficeEndpoints();
       u.UseWebsiteEndpoints();
     });
+if (app.Environment.IsDevelopment())
+{
+  app.UseViteDevelopmentServer(true);
+}
 
 await app.RunAsync();
